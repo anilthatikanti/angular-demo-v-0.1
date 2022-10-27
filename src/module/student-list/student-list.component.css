@@ -1,0 +1,8 @@
+.error{
+    color:red;
+    font-family:'Segoe UI';
+}
+.empty-page{
+    height:100vh;
+    width:100%;
+}
