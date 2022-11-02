@@ -6,16 +6,40 @@ import { CheckLoginService } from 'src/services/logincheck-service/check-login.s
 import { LoginService } from '../services/login-service/login.service';
 
 const routes: Routes = [
-  {path:"",redirectTo:"login",pathMatch:'full'},
-  {path:"home",loadChildren:()=>import('../module/home/home.module').then(m=>m.HomeModule),canActivate:[LoginService]},
-  {path:"login", component:LoginComponent},
-  {path:"update-details",loadChildren:()=>import('../module/update-details/update-details.module').then(m=>m.UpdateDetailsModule),canActivate:[LoginService]},
-  {path:"dashboard",loadChildren:()=>import('../module/student-list/student-list.module').then(m=>m.StudentListModule),canActivate:[LoginService]},
-  {path:"**",redirectTo:"login",pathMatch:"full"}
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'add-student',
+    loadChildren: () =>
+      import('../module/home/home.module').then((m) => m.HomeModule),
+    canActivate: [LoginService],
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('../module/login/login.module').then((m) => m.LoginModule),
+    canActivate: [CheckLoginService],
+  },
+  {
+    path: 'user-details/:id',
+    loadChildren: () =>
+      import('../module/update-details/update-details.module').then(
+        (m) => m.UpdateDetailsModule
+      ),
+    canActivate: [LoginService],
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('../module/student-list/student-list.module').then(
+        (m) => m.StudentListModule
+      ),
+    canActivate: [LoginService],
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
-//loadChildren:()=>import('../module/login/login.module').then(m=>m.LoginModule),canActivate:[CheckLoginService]
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

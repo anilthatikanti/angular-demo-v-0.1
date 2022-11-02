@@ -1,22 +1,26 @@
 <div class="container pt-3 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="text-center">Add New Student</h1>
+    <h1 class="text-center">Update Student</h1>
     <hr class="h-line"/>
-    <form #form="ngForm" (ngSubmit)="onSubmit()">
-        *Name: <input class="m-2" type="text" id="name" required [(ngModel)]="name" name="name">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form,studentName,subjectName,gradeName)">
+        *Name: <input #studentName = ngModel class="m-2" type="text" id="name" required [(ngModel)]="name" name="name" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
         <br/>
-        *Subjects: <input class="m-2" type="text" id = "subjects" [(ngModel)]="subjects" required name="subjects">
+        *Subjects: <input #subjectName = ngModel class="m-2" type="text" id = "subjects" [(ngModel)]="subjects" required name="subjects" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
         <br/>
             *Grade: 
-            <input class="m-2" type="radio" id="A_GRADE" name="grade" value="A" required [(ngModel)]="grade">
+            <input #gradeName = ngModel class="m-2" type="radio" id="A_GRADE" name="grade" value="A" required [(ngModel)]="grade" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
             <label for="A_GRADE">A</label>
-            <input class="m-2" type="radio" id="B_GRADE" name="grade" value="B" required  [(ngModel)]="grade">
+            <input #gradeName = ngModel  class="m-2" type="radio" id="B_GRADE" name="grade" value="B" required  [(ngModel)]="grade" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
             <label for="B_GRADE">B</label>
-            <input class="m-2" type="radio" id="C-GRADE" name="grade" value="C" required [(ngModel)]="grade">
+            <input #gradeName = ngModel class="m-2" type="radio" id="C-GRADE" name="grade" value="C" required [(ngModel)]="grade" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
             <label for="C-GRADE">C</label>
-            <input class="m-2" type="radio" id="D-GRADE" name="grade" value="D" required [(ngModel)]="grade">
+            <input #gradeName = ngModel class="m-2" type="radio" id="D-GRADE" name="grade" value="D" required [(ngModel)]="grade" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
             <label for="D-GRADE">D</label>
             <br/>
-            <button type="submit" class="btn btn-primary m-2" >update Student</button>
+            <button type="submit" class="btn btn-primary m-2" [disabled]="!isTrue" >update Student</button>
             <button type="button" class="btn btn-success m-2" (click)="goToHome()">Back</button>
     </form>
+    <hr  class="h-line"/>
+    <p *ngIf="isEmpty" class="error">
+        {{error}}
+    </p>
 </div>

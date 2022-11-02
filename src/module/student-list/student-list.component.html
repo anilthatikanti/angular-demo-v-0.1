@@ -1,4 +1,4 @@
-<div *ngIf="studentsArray.length!==0;else empty" class="text-center mt-3">
+<div *ngIf="studentsArray&&studentsArray.length!==0;else empty" class="text-center mt-3">
     <table class="table">
         <thead>
             <tr>
@@ -11,12 +11,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of studentsArray; let i = index">
-                <td>{{i+1}}</td>
+                <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.subjects}}</td>
                 <td>{{item.grade}}</td>
                 <td>
-                    <a routerLink="/update-details" (click)="itemNeedUpdate(item)">Edit</a>
+                    <!-- <a routerLink="/update-details/{{item.id}}">edit</a> -->
+                    <button type="button" class="btn btn-link" (click)="itemNeedUpdate(item)">
+                        Edit
+                    </button>
                     <button type="button" class="btn btn-danger btn-sm m-3" (click)="deleteItem(item)">Delete</button>
                 </td>
             </tr>
@@ -24,14 +27,14 @@
     </table>
     <div class="text-center">
         <button class="btn btn-warning btn-sm" (click)="logOut()">LogOut</button>
-        <button type="button" class="btn btn-secondary btn-sm m-2" (click)="gotoHome()">Home</button>
+        <button type="button" class="btn btn-primary btn-sm m-2" (click)="addStudent()">Add Student</button>
     </div>
 </div>
 <ng-template #empty>
     <div class="d-flex flex-column justify-content-center empty-page">
         <h1  class="text-center error">students list is empty..! <br/>add student</h1>
         <div class="d-flex flex-row justify-content-center" >
-            <button type="button" class="btn btn-secondary btn-sm m-2" (click)="gotoHome()">Home</button>
+            <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addStudent()">Add Student</button>
             <button class="btn btn-warning btn-sm m-2" (click)="logOut()">LogOut</button>
         </div>
     </div>

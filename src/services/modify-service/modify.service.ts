@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ModifyService {
-updateneed?:object
+  updateneed?: object
   constructor() {
-    this.updateneed={}
-   }
+    this.updateneed = {}
+  }
 
-   updatedobject(item:any){
-    this.updateneed=item
-   }
+  updatedobject(item: any) {
+    this.updateneed = item
+  }
 
 
 }
