@@ -82,6 +82,7 @@ export class HomeComponent implements OnInit {
     this.subjects = '';
     this.grade = '';
     this.isTrue = false;
+    this.isEmpty=false;
   }
 
   errorGenerate(studentName: any, subjectName: any, gradeName: any) {

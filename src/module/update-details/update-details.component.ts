@@ -41,7 +41,7 @@ export class UpdateDetailsComponent implements OnInit {
     if (local) {
       this.item = JSON.parse(local).find((i: any) => i.id === id);
       if (this.item === undefined) {
-        // this.route.navigate(['dashboard']);
+         this.route.navigate(['dashboard']);
         return;
       }
       this.name = this.item.name;

@@ -16,8 +16,8 @@
             <input #gradeName = ngModel class="m-2" type="radio" id="D-GRADE" name="grade" value="D" required [(ngModel)]="grade" (ngModelChange)="errorGenerate(studentName,subjectName,gradeName)">
             <label for="D-GRADE">D</label>
             <br/>
-            <button type="submit" class="btn btn-primary m-2" [disabled]="!isTrue" >update Student</button>
-            <button type="button" class="btn btn-success m-2" (click)="goToHome()">Back</button>
+            <button nz-button nzType="primary" [disabled]="!isTrue" >update Student</button>
+            <button nz-button nzType="primary" (click)="goToHome()">Back</button>
     </form>
     <hr  class="h-line"/>
     <p *ngIf="isEmpty" class="error">

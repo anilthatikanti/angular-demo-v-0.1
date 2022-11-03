@@ -7,7 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 const routes: Routes = [{ path: '', component: LoginComponent }];
 
 @NgModule({
-  declarations: [],
+  declarations: [LoginComponent],
   imports: [CommonModule, RouterModule.forChild(routes), NzButtonModule],
   exports: [RouterModule],
 })

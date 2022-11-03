@@ -21,9 +21,7 @@ registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    UpdateDetailsComponent,
+    AppComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [ModifyService, LoginService, OperationService, { provide: NZ_I18N, useValue: en_US }],

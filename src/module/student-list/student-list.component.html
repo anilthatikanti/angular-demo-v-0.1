@@ -17,25 +17,25 @@
                 <td>{{item.grade}}</td>
                 <td>
                     <!-- <a routerLink="/update-details/{{item.id}}">edit</a> -->
-                    <button type="button" class="btn btn-link" (click)="itemNeedUpdate(item)">
+                    <button nz-button nzType="primary" (click)="itemNeedUpdate(item)">
                         Edit
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm m-3" (click)="deleteItem(item)">Delete</button>
+                    <button nz-button nzType="primary" (click)="deleteItem(item)">Delete</button>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="text-center">
-        <button class="btn btn-warning btn-sm" (click)="logOut()">LogOut</button>
-        <button type="button" class="btn btn-primary btn-sm m-2" (click)="addStudent()">Add Student</button>
+        <button nz-button nzType="primary" (click)="logOut()">LogOut</button>
+        <button nz-button nzType="primary" (click)="addStudent()">Add Student</button>
     </div>
 </div>
 <ng-template #empty>
     <div class="d-flex flex-column justify-content-center empty-page">
         <h1  class="text-center error">students list is empty..! <br/>add student</h1>
         <div class="d-flex flex-row justify-content-center" >
-            <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addStudent()">Add Student</button>
-            <button class="btn btn-warning btn-sm m-2" (click)="logOut()">LogOut</button>
+            <button nz-button nzType="primary" nzDanger (click)="addStudent()">Add Student</button>
+            <button nz-button nzType="primary" (click)="logOut()">LogOut</button>
         </div>
     </div>
 </ng-template>
